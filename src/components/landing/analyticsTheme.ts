@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react";
 import { Bot, Chrome, Cloud, Code, Database, Terminal } from "lucide-react";
 
 /**
- * Category colors — same as DeveloperTrendsCard / MetricsDetailPage (`TREND_FILTERS`)
+ * Category colors: same as DeveloperTrendsCard / MetricsDetailPage (`TREND_FILTERS`)
  * and the mobile analytics screens.
  */
 export const CATEGORY_COLORS = {
@@ -13,7 +13,7 @@ export const CATEGORY_COLORS = {
   distracted: "#FF6B9D",
 } as const;
 
-/** TopAppUsageCard / mobile `APP_COLOR_PALETTE` — hash pick for app rows */
+/** TopAppUsageCard / mobile `APP_COLOR_PALETTE`: hash pick for app rows */
 const APP_STYLE_PALETTE: { color: string; linearGradient: string }[] = [
   { color: "#5B6FD8", linearGradient: "linear-gradient(to bottom right, #5B6FD8, #7C4DFF)" },
   { color: "#4ECDC4", linearGradient: "linear-gradient(to bottom right, #4ECDC4, #44A6A0)" },
@@ -32,7 +32,7 @@ function hashString(s: string): number {
 }
 
 /**
- * Inferred app categories — same keys/colours as `AppLanguagesDetailPage` and mobile `_kCategoryColors`.
+ * Inferred app categories: same keys/colours as `AppLanguagesDetailPage` and mobile `_kCategoryColors`.
  */
 export const APP_USAGE_CATEGORY_COLORS: Record<string, string> = {
   Development: "#5B6FD8",
@@ -70,7 +70,7 @@ export const LANDING_LANGUAGE_COLORS: Record<string, string> = {
   TypeScript: "#3B82F6",
   Dart: "#14B8A6",
   Python: "#F59E0B",
-  /** Docker Compose, GitHub Actions, CI — common alongside TS/Python in this repo */
+  /** Docker Compose, GitHub Actions, CI; common alongside TS/Python in this repo */
   YAML: "#A855F7",
 };
 

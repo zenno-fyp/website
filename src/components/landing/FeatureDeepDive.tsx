@@ -54,7 +54,7 @@ const nudgeExamples = [
   },
   {
     time: "14:05",
-    message: "Quiet hours are on — we'll deliver non-urgent nudges after your window ends.",
+    message: "Quiet hours are on, so we will deliver non-urgent nudges after your window ends.",
   },
   {
     time: "16:20",
@@ -79,7 +79,7 @@ export function FeatureDeepDive() {
           >
             <h2 className="landing-h2-lg">See your work patterns</h2>
             <p className="landing-lead" style={{ marginBottom: "1.25rem" }}>
-              Developer Trends tracks focus the same way on web and mobile—flow, debugging, research, communication, and
+              Developer Trends tracks focus the same way on web and mobile, including flow, debugging, research, communication, and
               distracted hours. Apps &amp; Languages adds{" "}
               <span style={{ color: "#E5E7EB" }}>inferred app categories</span> (Development, Browser, Communication, …)
               so you see where applications sit, not just raw screen time.
@@ -90,7 +90,7 @@ export function FeatureDeepDive() {
                 This week · hours by app category
               </div>
               <div style={{ color: "#6F7885", fontSize: "0.75rem", marginBottom: "0.75rem", lineHeight: 1.45 }}>
-                Grouped like Apps &amp; Languages — same categories on web and mobile
+                Grouped like Apps &amp; Languages, with the same categories on web and mobile
               </div>
               <div className="flex flex-wrap items-end justify-between gap-4 mb-2">
                 <span
@@ -216,7 +216,7 @@ export function FeatureDeepDive() {
                     Find peers
                   </h3>
                   <p style={{ fontSize: "0.9375rem", color: "#A7B0BE", lineHeight: 1.6, margin: 0 }}>
-                    Search teammates by skills, projects, apps, and bio—same discovery experience as the dashboard
+                    Search teammates by skills, projects, apps, and bio, with the same discovery experience as the dashboard
                     Peers screen on web and mobile.
                   </p>
                 </div>
@@ -246,7 +246,7 @@ export function FeatureDeepDive() {
                     Chats
                   </h3>
                   <p style={{ fontSize: "0.9375rem", color: "#A7B0BE", lineHeight: 1.6, margin: 0 }}>
-                    Direct messages with peers—conversation list and thread view aligned with the in-app Chats experience,
+                    Direct messages with peers use a conversation list and thread view aligned with the in-app Chats experience,
                     including real-time updates when you are signed in.
                   </p>
                 </div>
@@ -350,7 +350,7 @@ export function FeatureDeepDive() {
                 Nudges that follow your Zenno Agent settings
               </h2>
               <p className="landing-lead" style={{ margin: 0 }}>
-                Schedules, focus styles, and wellbeing goals come straight from the agent screen—so reminders line up
+                Schedules, focus styles, and wellbeing goals come straight from the agent screen, so reminders line up
                 with how you actually work, not a generic template.
               </p>
             </div>
@@ -407,7 +407,7 @@ export function FeatureDeepDive() {
                   Nudge feed
                 </div>
                 <p style={{ fontSize: "0.875rem", color: "#6F7885", lineHeight: "1.5", margin: 0 }}>
-                  Examples from a typical day—timing and tone follow your agent settings.
+                  Examples from a typical day, with timing and tone that follow your agent settings.
                 </p>
               </div>
             </div>

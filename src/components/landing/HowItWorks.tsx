@@ -9,25 +9,25 @@ const steps = [
     icon: Monitor,
     title: "Zenno runs quietly on desktop",
     description:
-      "The desktop agent captures focus time, apps, and languages locally—lightweight and built to stay out of your flow.",
+      "The desktop agent captures focus time, apps, and languages locally. It stays lightweight and built to stay out of your flow.",
   },
   {
     icon: BarChart2,
     title: "Activity becomes metrics you can use",
     description:
-      "We organize time into flow, debugging, meetings, and more—the same signals that power your performance and trend views.",
+      "We organize time into flow, debugging, meetings, and more, using the same signals that power your performance and trend views.",
   },
   {
     icon: LayoutDashboard,
     title: "Your dashboard ties it together",
     description:
-      "Open the web app for metrics, trends, apps & languages, skills and projects—patterns for the week in one place.",
+      "Open the web app for metrics, trends, apps & languages, skills and projects, with patterns for the week in one place.",
   },
   {
     icon: Sparkles,
     title: "Zenno Agent nudges when it helps",
     description:
-      "Configure the agent in-app; get reminders that respect your schedule and preferences—not generic noise.",
+      "Configure the agent in-app; get reminders that respect your schedule and preferences, not generic noise.",
   },
 ];
 
@@ -128,7 +128,7 @@ export function HowItWorks() {
             How It Works
           </h2>
           <p className="landing-lead max-w-2xl mx-auto" style={{ margin: "0 auto", lineHeight: 1.6 }}>
-            Desktop agent, web dashboard, and Zenno Agent—wired the same way as
+            Desktop agent, web dashboard, and Zenno Agent, wired the same way as
             the product you use every day.
           </p>
         </motion.div>

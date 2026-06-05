@@ -34,9 +34,9 @@ const AREA_ANIM = {
 type Props = {
   data: LandingTrendPoint[];
   height?: number;
-  /** Parent sets height (e.g. clamp) — chart fills it via flex */
+  /** Parent sets height (e.g. clamp): chart fills it via flex */
   fillContainer?: boolean;
-  /** `flow_only`: single series — matches hero “flow hours” card. `all`: same as web/mobile Developer Trends */
+  /** `flow_only`: single series, matches hero "flow hours" card. `all`: same as web/mobile Developer Trends */
   mode?: SeriesMode;
   title?: string;
   showLegend?: boolean;

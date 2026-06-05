@@ -1,13 +1,25 @@
+import type { ReactNode } from 'react';
 import { motion } from 'motion/react';
 import { GlassCard } from './GlassCard';
 import { fadeUp, landingViewport, staggerDelay } from './landingMotion';
 import { Eye, Shuffle, TrendingDown } from 'lucide-react';
 
-const problems = [
+const problems: {
+  icon: typeof Eye;
+  title: string;
+  problem: ReactNode;
+  outcome: string;
+}[] = [
   {
     icon: Eye,
     title: 'Hidden work patterns',
-    problem: "You code all day but still don't know where your time goes.",
+    problem: (
+      <>
+        You code all day but still don't know
+        <br />
+        where your time goes.
+      </>
+    ),
     outcome: 'Zenno turns passive activity into understandable patterns.'
   },
   {
@@ -35,7 +47,11 @@ export function ProblemToOutcome() {
           transition={fadeUp(0.82, 0)}
           className="text-center landing-mb-heading"
         >
-          <h2 className="landing-h2">You code all day but still don't know where your time goes.</h2>
+          <h2 className="landing-h2">
+            You code all day but still don't know
+            <br />
+            where your time goes.
+          </h2>
           <p className="landing-lead max-w-2xl" style={{ margin: '0 auto' }}>
             Zenno transforms hidden patterns into clarity.
           </p>

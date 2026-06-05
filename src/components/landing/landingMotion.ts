@@ -1,5 +1,5 @@
 /**
- * Shared motion presets for landing sections — smooth ease-out, consistent timing.
+ * Shared motion presets for landing sections: smooth ease-out, consistent timing.
  */
 export const LANDING_EASE = [0.22, 1, 0.36, 1] as const;
 

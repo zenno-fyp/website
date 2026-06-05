@@ -65,7 +65,7 @@ export function Hero() {
             </h1>
 
             <p className="landing-lead mb-8 max-w-lg">
-              Zenno tracks your desktop activity, maps your focus patterns across apps, languages, and projects, then delivers AI nudges that respect your rhythm—helping you code with more awareness and intention.
+              Zenno tracks your desktop activity, maps your focus patterns across apps, languages, and projects, then delivers AI nudges that respect your rhythm, helping you code with more awareness and intention.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-8">

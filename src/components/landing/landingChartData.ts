@@ -1,4 +1,4 @@
-/** Mock series for landing — same shape as `UsageTrendDay` / mobile `UsageTrendBar` */
+/** Mock series for landing: same shape as `UsageTrendDay` / mobile `UsageTrendBar` */
 export type LandingTrendPoint = {
   time: string;
   flow_hours: number;

@@ -109,6 +109,29 @@ API calls use the shared Axios client (`src/services/api.ts`) and typed helpers 
 - **Realtime**: Socket.IO client for chat and selected live updates.
 - **Notifications**: service worker + FCM for background/browser push delivery.
 
+```mermaid
+flowchart TB
+  subgraph browser["Browser"]
+    Pages["pages + router\nlanding / dashboard / admin"]
+    Stores["Zustand\nauth + session"]
+    Api["Axios\napi.ts + adminApi.ts"]
+    Socket["Socket.IO client\nchat"]
+    SW["Service worker\nFCM"]
+  end
+
+  Firebase["Firebase Web\nAuth + Messaging"]
+  Backend["Zenno Backend\nREST /api/v1"]
+
+  Pages --> Stores
+  Pages --> Api
+  Pages --> Socket
+  Pages --> SW
+  Stores --> Firebase
+  Api --> Backend
+  Socket --> Backend
+  SW --> Firebase
+```
+
 ## Prerequisites
 
 - Node.js 20+ recommended

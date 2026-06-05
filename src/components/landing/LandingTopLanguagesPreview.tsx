@@ -39,7 +39,7 @@ export function LandingTopLanguagesPreview() {
           Language Distribution
         </h3>
 
-        {/* Featured — same gradient hero as dashboard */}
+        {/* Featured: same gradient hero as dashboard */}
         <div
           className="relative mb-6 overflow-hidden rounded-2xl p-5 text-white shadow-xl"
           style={{
@@ -79,7 +79,7 @@ export function LandingTopLanguagesPreview() {
           </div>
         </div>
 
-        {/* Secondary languages — grid + thin progress like dashboard */}
+        {/* Secondary languages: grid + thin progress like dashboard */}
         <div className="grid grid-cols-2 gap-3">
           {rest.map((lang) => (
             <div

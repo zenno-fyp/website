@@ -9,13 +9,13 @@ const features = [
     icon: BarChart3,
     title: "Performance & trends",
     description:
-      "Flow, debugging, research, communication, and distracted time—same breakdown as Developer Trends in the app.",
+      "Flow, debugging, research, communication, and distracted time, with the same breakdown as Developer Trends in the app.",
   },
   {
     icon: Code2,
     title: "Apps & languages",
     description:
-      "Top apps, language mix, and inferred categories (Development, Browser, Communication, …)—matching the Apps & Languages views on web and mobile.",
+      "Top apps, language mix, and inferred categories (Development, Browser, Communication, …), matching the Apps & Languages views on web and mobile.",
   },
   {
     icon: Folder,
@@ -27,7 +27,7 @@ const features = [
     icon: Sparkles,
     title: "Zenno Agent",
     description:
-      "Preferences for schedule, focus style, and wellbeing—nudges that respect quiet hours and your goals.",
+      "Preferences for schedule, focus style, and wellbeing, with nudges that respect quiet hours and your goals.",
   },
 ];
 
@@ -44,7 +44,7 @@ export function CorePlatform() {
         >
           <h2 className="landing-h2">Everything you need to understand how you work</h2>
           <p className="landing-lead max-w-2xl mx-auto" style={{ margin: "0 auto" }}>
-            Desktop agent, web dashboard, and Zenno Agent—connected the same way as in the product.
+            Desktop agent, web dashboard, and Zenno Agent, connected the same way as in the product.
           </p>
         </motion.div>
 

@@ -13,11 +13,11 @@ const comparisons = [
   },
   {
     typical: "Charts you never reopen",
-    zenno: "Same Developer Trends on web and mobile—plus your live profile",
+    zenno: "Same Developer Trends on web and mobile, plus your live profile",
   },
   {
     typical: "Résumé claims without proof",
-    zenno: "Projects, skills, and tools tied to tracked activity—not guesswork",
+    zenno: "Projects, skills, and tools tied to tracked activity, not guesswork",
   },
 ] as const;
 
@@ -34,7 +34,7 @@ export function WhyDifferent() {
         >
           <h2 className="landing-h2">Why Zenno feels different</h2>
           <p className="landing-lead mx-auto" style={{ margin: "0 auto", lineHeight: 1.6, maxWidth: "44rem" }}>
-            Built around the desktop agent, developer-grade metrics, and a profile that reflects real work—so you get
+            Built around the desktop agent, developer-grade metrics, and a profile that reflects real work, so you get
             clarity without another generic productivity layer.
           </p>
         </motion.div>

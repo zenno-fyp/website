@@ -18,7 +18,7 @@ export function FinalCTA() {
             background: 'linear-gradient(135deg, rgba(91, 111, 216, 0.2) 0%, rgba(124, 77, 255, 0.15) 100%)',
             border: '1px solid rgba(124, 77, 255, 0.3)',
             boxShadow: '0 20px 60px rgba(91, 111, 216, 0.2)',
-            /* Explicit padding — large Tailwind p-* values are not in the app CSS bundle */
+            /* Explicit padding: large Tailwind p-* values are not in the app CSS bundle */
             padding: 'clamp(2.75rem, 7vw, 5.5rem) clamp(1.75rem, 6vw, 4.5rem)',
           }}
         >

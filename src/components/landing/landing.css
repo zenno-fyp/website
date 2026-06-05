@@ -1,5 +1,5 @@
 /**
- * Landing page spacing — the main `index.css` Tailwind bundle only ships a small
+ * Landing page spacing: the main `index.css` Tailwind bundle only ships a small
  * subset of utilities (e.g. py-* stops at py-8, gap-* at gap-8). Large classes like
  * py-52 or gap-12 are not in the bundle, so they never applied. These classes use
  * plain CSS so spacing is guaranteed to show.
@@ -188,7 +188,7 @@
   min-width: 0;
 }
 
-/* Landing navbar — bundle omits md:hidden, hidden md:block, md:flex, etc. */
+/* Landing navbar: bundle omits md:hidden, hidden md:block, md:flex, etc. */
 .landing-nav-burger {
   display: inline-flex;
   align-items: center;
@@ -342,7 +342,7 @@
   }
 }
 
-/* Equal-height columns (e.g. profile preview cards) — default .landing-grid-2 uses align-items: center */
+/* Equal-height columns (e.g. profile preview cards): default .landing-grid-2 uses align-items: center */
 .landing-grid-2-stretch {
   align-items: stretch;
 }
@@ -410,7 +410,7 @@
   margin-bottom: 2rem;
 }
 
-/* Glass cards: smooth lift on hover (transform only — box-shadow stays inline on the component) */
+/* Glass cards: smooth lift on hover (transform only; box-shadow stays inline on the component) */
 .landing-glass-surface {
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -438,7 +438,7 @@
   }
 }
 
-/* How It Works: always horizontal — scroll on small viewports, centered on lg+ */
+/* How It Works: always horizontal; scroll on small viewports, centered on lg+ */
 .how-it-works-row {
   display: flex;
   flex-direction: row;

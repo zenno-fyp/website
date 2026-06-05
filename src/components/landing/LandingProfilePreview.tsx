@@ -8,7 +8,7 @@ function langColor(name: string): string {
   return LANDING_LANGUAGE_COLORS[name] ?? "#5B6FD8";
 }
 
-/** Stacked bar as one gradient — avoids flex % width bugs that collapse segments to one color */
+/** Stacked bar as one gradient: avoids flex % width bugs that collapse segments to one color */
 function languageBarGradient(langs: { name: string; percent: number }[]): string {
   let acc = 0;
   const stops: string[] = [];
@@ -46,8 +46,8 @@ export function LandingProfilePreview() {
             and hiring teams
           </h2>
           <p className="landing-lead max-w-2xl mx-auto" style={{ margin: "0 auto", lineHeight: 1.6 }}>
-            Your Zenno profile is built to showcase how you actually work—projects, languages, apps, and skills pulled from
-            live activity—so teammates can find you and recruiters and HR get a credible, up-to-date picture of your
+            Your Zenno profile is built to showcase how you actually work: projects, languages, apps, and skills pulled from
+            live activity, so teammates can find you and recruiters and HR get a credible, up-to-date picture of your
             craft, not a static résumé.
           </p>
         </motion.div>
@@ -101,7 +101,7 @@ export function LandingProfilePreview() {
                     zubairabbas.dev@gmail.com
                   </div>
                   <p className="max-w-2xl leading-relaxed text-gray-300">
-                    Full-stack engineer on Zenno—shipping the analytics dashboard, API, mobile app, and desktop agent so
+                    Full-stack engineer on Zenno, shipping the analytics dashboard, API, mobile app, and desktop agent so
                     developers get one clear picture of how they work.
                   </p>
                   <div className="flex flex-wrap items-center gap-2 text-sm text-gray-400">
@@ -158,7 +158,7 @@ export function LandingProfilePreview() {
                   <p className="mt-2 text-sm text-gray-400 leading-relaxed">
                     The Zenno monorepo you see in this workspace: a NestJS backend and shared API, the React web
                     dashboard, a Flutter mobile app, the desktop tracking agent, and Python NLP services for intelligent
-                    nudges—surfaced together as projects and skills on your profile.
+                    nudges, surfaced together as projects and skills on your profile.
                   </p>
                   <div className="mt-3 flex flex-wrap gap-4 text-sm text-gray-400">
                     <span className="flex items-center gap-1.5">
