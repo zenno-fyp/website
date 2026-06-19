@@ -5,8 +5,9 @@ import { Input } from "./ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { ScrollArea } from "./ui/scroll-area";
 import { cn } from "./ui/utils";
-import { ArrowLeft, Search, Send, MessageCircle, Loader2, Flag, X } from "lucide-react";
+import { ArrowLeft, Search, Send, MessageCircle, Loader2, Flag, X, Trash2 } from "lucide-react";
 import {
+  deleteChatConversation,
   fetchChatConversations,
   fetchChatMessages,
   getBackendOriginForSocket,
@@ -71,6 +72,8 @@ export function ChatsPage({
   const [reportOpen, setReportOpen] = useState(false);
   const [reportReason, setReportReason] = useState("");
   const [reportSubmitting, setReportSubmitting] = useState(false);
+  const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
+  const [deleteSubmitting, setDeleteSubmitting] = useState(false);
   const [socketConnected, setSocketConnected] = useState(false);
   const socketRef = useRef<Socket | null>(null);
   const openingPeerRef = useRef(false);
@@ -88,6 +91,15 @@ export function ChatsPage({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [reportOpen]);
+
+  useEffect(() => {
+    if (!deleteConfirmOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setDeleteConfirmOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [deleteConfirmOpen]);
 
   const loadConversations = useCallback(async () => {
     setLoadingList(true);
@@ -270,6 +282,28 @@ export function ChatsPage({
       }
     } finally {
       setReportSubmitting(false);
+    }
+  };
+
+  const submitDeleteConversation = async () => {
+    if (!selectedConvId) return;
+    const conversationId = selectedConvId;
+    setDeleteSubmitting(true);
+    try {
+      await deleteChatConversation(conversationId);
+      setConversations((list) => list.filter((c) => c.id !== conversationId));
+      setSelectedConvId(null);
+      setMessages([]);
+      setDeleteConfirmOpen(false);
+      toast.success("Chat deleted from your inbox.");
+    } catch (e: unknown) {
+      if (e instanceof AxiosError) {
+        toast.error(handleApiError(e));
+      } else {
+        toast.error("Could not delete chat.");
+      }
+    } finally {
+      setDeleteSubmitting(false);
     }
   };
 
@@ -476,24 +510,44 @@ export function ChatsPage({
                     <p className={`text-xs ${panelMuted}`}>Direct message</p>
                   </div>
                 </div>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  className={
-                    theme === "dark"
-                      ? "shrink-0 touch-manipulation border-white/20 bg-white/5 text-gray-200 hover:bg-white/10 [&_svg]:pointer-events-auto"
-                      : "shrink-0 touch-manipulation [&_svg]:pointer-events-auto"
-                  }
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setReportOpen(true);
-                  }}
-                >
-                  <Flag className="mr-2 h-4 w-4" />
-                  Report
-                </Button>
+                <div className="flex shrink-0 items-center gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className={
+                      theme === "dark"
+                        ? "touch-manipulation border-white/20 bg-white/5 text-gray-200 hover:bg-white/10 [&_svg]:pointer-events-auto"
+                        : "touch-manipulation [&_svg]:pointer-events-auto"
+                    }
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setReportOpen(true);
+                    }}
+                  >
+                    <Flag className="mr-2 h-4 w-4" />
+                    Report
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className={
+                      theme === "dark"
+                        ? "touch-manipulation border-red-400/30 bg-red-500/10 text-red-200 hover:bg-red-500/20 [&_svg]:pointer-events-auto"
+                        : "touch-manipulation border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700 [&_svg]:pointer-events-auto"
+                    }
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setDeleteConfirmOpen(true);
+                    }}
+                  >
+                    <Trash2 className="mr-2 h-4 w-4" />
+                    Delete
+                  </Button>
+                </div>
               </div>
 
               <div className="flex-1 overflow-hidden">
@@ -667,6 +721,72 @@ export function ChatsPage({
                 theme === "dark" && "ring-offset-[#121218]",
               )}
               onClick={() => setReportOpen(false)}
+              aria-label="Close"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      ) : null}
+      {deleteConfirmOpen ? (
+        <div
+          className="absolute inset-0 z-[100] flex items-center justify-center p-4 pointer-events-auto"
+          role="presentation"
+        >
+          <button
+            type="button"
+            className="absolute inset-0 bg-black/50"
+            aria-label="Close delete dialog"
+            onClick={() => setDeleteConfirmOpen(false)}
+          />
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="chat-delete-dialog-title"
+            className={cn(
+              "relative z-10 grid w-full max-w-md gap-4 rounded-lg border p-6 shadow-lg",
+              theme === "dark"
+                ? "border-white/10 bg-[#121218] text-gray-100"
+                : "border-gray-200 bg-white text-gray-900",
+            )}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex flex-col gap-2 text-center sm:text-left">
+              <h2
+                id="chat-delete-dialog-title"
+                className={cn("text-lg font-semibold leading-none", theme === "dark" ? "text-white" : "text-gray-900")}
+              >
+                Delete chat?
+              </h2>
+              <p className={cn("text-sm", theme === "dark" ? "text-gray-400" : "text-gray-600")}>
+                This removes the conversation from your inbox only. The other person will still keep their copy.
+              </p>
+            </div>
+            <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end sm:gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setDeleteConfirmOpen(false)}
+                className={theme === "dark" ? "border-white/20 bg-transparent text-gray-200" : undefined}
+              >
+                Cancel
+              </Button>
+              <Button
+                type="button"
+                disabled={deleteSubmitting}
+                onClick={() => void submitDeleteConversation()}
+                className="rounded-xl bg-red-600 text-white hover:bg-red-700"
+              >
+                {deleteSubmitting ? "Deleting…" : "Delete chat"}
+              </Button>
+            </div>
+            <button
+              type="button"
+              className={cn(
+                "absolute right-4 top-4 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-red-500/50",
+                theme === "dark" && "ring-offset-[#121218]",
+              )}
+              onClick={() => setDeleteConfirmOpen(false)}
               aria-label="Close"
             >
               <X className="h-4 w-4" />
